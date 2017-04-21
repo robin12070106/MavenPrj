@@ -65,5 +65,12 @@ public class MyBatisPlatformDao implements PlatformDao{
       return platformDao.delete(id);
    }
 
+@Override
+public List<Platform> getListOfLecture(String lectureId) {
+	PlatformDao platformDao;
+    platformDao = sqlSession.getMapper(PlatformDao.class);
+	return platformDao.getListOfLecture(lectureId);
+}
+
 
 }

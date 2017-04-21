@@ -1,75 +1,81 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<c:set var="root" value="${pageContext.request.contextPath}" />
-	<header id="header">
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<c:set var="root" value="${pageContext.request.contextPath }"/>
+<header id="header">
 		<div class="content-container">
-
 			<h1 id="logo">
-				<img src="${root}/resource/images/logo.png" alt="뉴렉처 온라인">
+				<img src="${root }/resource/images/logo.png" alt="뉴렉처 온라인" />
 			</h1>
-
+		
 			<section>
-				<h1 class="hidden">header</h1>
-				<!-- 스타일에는  세미콜론 써주기!-->
+				<h1 class="hidden">Header</h1>
+			
 				<nav id="main-menu" class="hr-menu">
-					<h1 class="">
-						메인메뉴 <input type="button" value="클릭" id="btn-result" />
-					</h1>
+					<h1 class="hidden">메인 메뉴</h1>
+						<!-- <input type="button" value="클릭" id="btn-result"/> -->
 					<ul>
-						<!-- ul,ol,dl -->
-						<li><a href="">학습가이드</a></li>
+						<li><a href="">학습가이드</a></li>	
 						<li><a href="">뉴렉과정</a></li>
 						<li><a href="">강좌선택</a></li>
 					</ul>
 				</nav>
-
-				<div id="lecture-search-form">
-					<h3 class="hidden">검색 폼</h3>
+			
+				<nav id="lecture-search-form" class="hr-menu">
+					<h1 class="hidden">강좌 검색 폼</h1>
 					<form>
 						<fieldset>
-							<legend class="hidden">검색 필드</legend>
-							<label>과정검색</label> <input type="text" /> <input
-								class="lecture-search-btn" type="submit" value="검색" />
+							<legend class="hidden">검색필드</legend>
+							<label>과정검색</label>
+							<input type="text"/>
+							<input class="lecture-search-button" type="submit" value="검색"/>						
 						</fieldset>
 					</form>
-				</div>
-				
+				</nav>
+			
 				<security:authentication property="authorities" var="auths"/>
 				<security:authentication property="name" var="name"/>
+			
 				<div>
-					id : ${name} <br />
-					<c:forEach var="role" items="${auths}">
-					role : ${role}<br />
+					id:${name }<br />
+					<c:forEach var="role" items="${auths }">
+					role:${role } 
 					</c:forEach>
 				</div>
-
 				<nav id="account-menu" class="hr-menu">
-					<h1 class="hidden">계정메뉴</h1>
+					<h1 class="hidden">계정 메뉴</h1>
 					<ul>
-						<li><a href="${root}/index">HOME</a></li>						
-						<security:authorize access="isAnonymous()">
-							<li><a href="${root}/joinus/login">로그인</a></li>
-						</security:authorize>						
-						<security:authorize access="isAuthenticated()">						
+						<li><a href="${root }/index">HOME</a></li>
+						
+						<security:authorize access="isAnonymous()"> <!-- access 안에 있는게 다 표현식 -->
+							<li><a href="${root }/joinus/login">로그인</a></li>
+							<li><a href="${root }/joinus/join">회원가입</a></li>
+						</security:authorize>
+						<security:authorize access="isAuthenticated()"> <!-- access 안에 있는게 다 표현식 -->
 							<li>
-								<a href="${root}/j_spring_security_logout">
-									<security:authentication property="name"/>님 로그아웃
+								<a href="${root }/j_spring_security_logout">
+									<security:authentication property="name"/> 님 로그아웃
 								</a>
 							</li>
-						</security:authorize>						
+						</security:authorize>
 					</ul>
 				</nav>
-
-				<nav id="member-menu" class="hr-menu">
-					<h1 class="hidden">회원메뉴</h1>
+			
+				<nav id="member-menu" class="hr-menu">	
+					<h1 class="hidden">고객 메뉴</h1>
 					<ul>
-						<li><a href="${root}/joinus/mypage">마이페이지</a></li>
-						<li><a href="${root}/customer/notice">고객 센터</a></li>
+						<li>
+							<a href="${root }/joinus/mypage">
+								<img src="${root }/resource/images/txt-mypage.png" alt="마이페이지" />
+							</a>
+						</li>
+						<li>
+							<a href="${root }/customer/notice">
+								<img src="${root }/resource/images/txt-customer.png" alt="고객센터" />
+							</a>
+						</li>
 					</ul>
 				</nav>
-
 			</section>
-		</div>
+		</div>	
 	</header>

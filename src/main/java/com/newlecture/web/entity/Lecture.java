@@ -18,13 +18,23 @@ public class Lecture {
 	private String writerId;
 	private Date	regDate;	
 			
-	//°ü°è entity
-	private List<LecturePlatform> platforms;
+	//ï¿½ï¿½ï¿½ï¿½ entity
+	private List<Platform> platforms;
 	private List<Language> languages;
 	
-	//ºÎ¸ð °ü°è entity
+	//ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ entity
 	private Level level;
 	private Member member;
+	
+	
+	
+	
+	public List<Platform> getPlatforms() {
+		return platforms;
+	}
+	public void setPlatforms(List<Platform> platforms) {
+		this.platforms = platforms;
+	}
 	public String getId() {
 		return id;
 	}
@@ -97,12 +107,7 @@ public class Lecture {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-	public List<LecturePlatform> getPlatforms() {
-		return platforms;
-	}
-	public void setPlatforms(List<LecturePlatform> platforms) {
-		this.platforms = platforms;
-	}
+
 	public List<Language> getLanguages() {
 		return languages;
 	}

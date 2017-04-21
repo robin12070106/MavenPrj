@@ -6,6 +6,8 @@ import com.newlecture.web.entity.Platform;
 
 public interface PlatformDao {
 	
+	List<Platform> getListOfLecture(String lectureId);
+	
 	List<Platform> getList();
 	List<Platform> getList(int page);
 	List<Platform> getList(int page, String field, String query);

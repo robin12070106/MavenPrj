@@ -10,6 +10,15 @@
 		FROM Platform
 	</select>
 	
+	<select id="getListOfLecture" resultType="com.newlecture.web.entity.Language">
+	SELECT P.*
+	FROM 
+		Platform P 
+	    INNER JOIN LecturePlatform LP ON L.id = LP.platformId
+	    INNER JOIN Lecture T ON LP.platformId = T.id
+	WHERE T.id = #{lectureId}
+	</select>
+	
 	<select id="get" resultType="com.newlecture.web.entity.Platform">
 		SELECT *
 		FROM Platform

@@ -1,74 +1,111 @@
 @CHARSET "UTF-8";
 
-#header {
-	height: 70px;
+/* id(#)는 하나만을 위해 줄 수 있다
+#main-menu >ul>li:nth-child(2) <- (2)번째아이 지정
+{
+   color: lime;
+}
+#main-menu >h3~ul>li.first <- h3 밑으로 목록리스트중 첫째
+{
+   color: red;
 }
 
-#visual {
-	height: 171px;
-	color: white;
-	font-size: 20px;
-	background: #313131 url("../../images/bg-visual.png") no-repeat center;
-	border-top: 3px solid #8CBA34;
-	background-attachment: local;
-	/* 	overflow: fixed;
- */
+class(.)는 여러개 동시 부여 가능
+
+(>)바로 아래 자손, ( )아래 자손들다
+
+input[type] {} <- []안의 내용으로 특정해줌  */
+
+
+
+#header{
+   
+   height: 70px;
+ 
+   
 }
 
-#body {
-	min-height: 300px;
-	border-top: 5px solid #8CBA34;
-	margin-top: 1px;
+#visual{
+   
+   height: 171px;
+   background: #313131 url("../../images/bg-visual.png") no-repeat center;
+   border-top:3px solid #8CBA34;
+ /*   background-attachment: fixed; */
+ /*   overflow: scroll; */
+  
 }
 
-#body .content-container {
-	background: url("../../images/bg-body.png") repeat-y left;
+#body{
+   
+   /* min-height: 300px; */
+ 
+   /* border: 1px solid red; */
+   border-top:5px solid #8cba34;
+   margin-top:1px;
+   
 }
 
-#aside {
-	width: 205px;
-	min-height: 300px; /*height일 경우 빼도 되고 min-height으로 해도된다*/
-	float: left;
-	background: url("../../images/bg-aside-title.png") no-repeat left top;
+#body .content-container{
+   background: url("../../images/bg-body.png") repeat-y center;
+   
 }
 
-#main {
-	box-sizing: border-box;
-	position: relative;
-	width: 755px;
-	float: left;
-	padding-left: 35px;
-	padding-top: 45px;
-	min-height: 300px;
+#footer{
+   
+   height: 100px;
+   background: #313131;
+   
 }
 
-#footer {
-	height: 100px;
-	background: #313131;
+#aside{
+   float:left;
+   width:205px;
+   min-height:300px;
+ 
+   background:url("../../images/bg-aside-title.png") no-repeat center top;
+   
 }
 
-#quick-menu {
-	height: 100px;
-	width: 100px;
-	position: absolute;
-	left: 100px;
-	top: 100px;
-	border: 1px solid red;
-	background: url("../../images/logo.png") no-repeat left top;
-	/* 	background-size : cover;
- */
+#main{
+   box-sizing:border-box;
+   position:relative; /* 나를 기준으로 내 자식들은 */ 
+   
+   float:left;
+   width:755px;
+   min-height:300px;
+   
+   padding-left:35px;
+   padding-top:45px;
+   
+   
+    
 }
 
-.content-container {
-	width: 960px;
-	margin-left: auto;
-	margin-right: auto;
-	min-height: inherit; /* 콘텐트에 맞게 블럭이 늘어나게 해주는 min-. */
-	height: 100%;
-	position: relative; /* 컨테이너 안에 콘텐트 배치하고 싶은 경우 */
-}
+/* #quick-menu{
+   
+   position:absolute;
+   left:100px;
+   top:100px;
+   background:url("../../images/logo.png") no-repeat left top;
+   background-size:cover;
+   border:1px solid red;
+   
+   width:100px;
+   height:100px;
+  
+} */
 
-.clearfix {/* float를 초기화해주는 clearfix이다. 마지막 컨테이너에 넣어줌.  */
-	overflow:auto;
-	zoom: 1;
+.content-container{
+   
+   height:100%;
+   min-height:inherit;
+   width:960px;
+   margin-left: auto;
+   margin-right:auto;
+   position: relative;
+   
+}
+.clearfix {
+  overflow: auto;
+  zoom: 1;
 }

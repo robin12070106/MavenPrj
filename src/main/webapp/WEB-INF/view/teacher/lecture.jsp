@@ -6,12 +6,12 @@
 	<table>
 		<c:forEach var="lec" items="${model.lectures}">		
 		<tr>
-			<td><a href="lecture-detail"> ${lec.title}</a></td>
-			<td>${lec.levelName} / ${lec.memberName}</td>
+			<td>${lec.title}</td>
+			<td>${lec.level.name}</td>
 			<td>
-				<a href="">공개</a>
-				<a href="">편집</a>
-				<a href="">삭제</a>
+				<input type="button" value="공개" />
+				<input type="button" value="편집" />
+				<input type="button" value="삭제" />
 			</td>
 		</tr>
 		<tr>
@@ -26,11 +26,9 @@
 				</ul>
 				<!-- 강좌 플랫폼 -->
 				<ul>
-				<c:forEach var="plat" items="${lec.platforms}">	
 					<li>
-						${plat.name}
+						
 					</li>
-				</c:forEach>
 				</ul>
 			</td>
 		</tr>
